@@ -1,3 +1,3 @@
-# web-bluetooth-demos -- Web Bluetooth API demos for Chrome
+# web-bluetooth-demos -- Web Bluetooth API demos for Chrome - We Vibe
 
-See: <https://github.com/follower/web-bluetooth-demos/tree/gh-pages> and <http://follower.github.io/web-bluetooth-demos/> 
+See: <https://github.com/goldfisk/web-bluetooth-demos/tree/gh-pages> and <http://goldfisk.github.io/web-bluetooth-demos/> 
