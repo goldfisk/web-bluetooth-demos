@@ -172,8 +172,9 @@
           document.getElementById('info-wrapper').style.display = ""
           document.getElementById('info').innerHTML = data;
           */
+          
           weVibe.readInfo().then(function(result) {
-          console.log(result); // "Stuff worked!"
+          console.log(result.prototype.getInt8()); // "Stuff worked!"
             }, function(err) {
           console.log(err); // Error: "It broke"
           });
