@@ -70,8 +70,10 @@
               <select id="selectBox" class="btn dropdown-toggle pink darken-4" placeholder="Select mode" onchange="changePattern(value);">
                 <option value="none">None</option>
                 <option value="chachacha">Chachacha</option>
-                <option value="vibrate">Vibrate</option>
+                <option value="vibrate1">Vibrate1</option>
                 <option value="vibrate2">Vibrate2</option>
+                <option value="vibrate3">Vibrate3</option>
+                <option value="vibrate4">Vibrate4</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -178,14 +180,16 @@
     command = 0;
    else if (pattern == "chachacha")
     command = 9;
-    else if (pattern == "vibrate")
+    else if (pattern == "vibrate1")
     command = 1;
      else if (pattern == "vibrate2")
     command = 2; 
     else if (pattern == "vibrate3")
     command = 3; 
+    else if (pattern == "vibrate4")
+    command = 4; 
     else if (pattern == "other")
-    command = 4;
+    command = 5;
      weVibe.connect()
           .then(_ => {return weVibe.writeCommand(new Uint8Array([15, command, null, 0, null, null, null, null]));})
           //.then(_ => weVibe.disconnect())
