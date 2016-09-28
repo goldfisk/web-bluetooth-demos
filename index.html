@@ -73,14 +73,26 @@
                 <option value="2">Vibrate2</option>
                 <option value="3">Vibrate3</option>
                 <option value="4">Pulse</option>
-                <option value="5">RapidPulse</option>
-                <option value="6">BackandForth</option>
-                <option value="7">PulseSlow</option>
-                <option value="8">BackandForthSlow</option>
+                <option value="5">Rapid Pulse</option>
+                <option value="6">Echo</option>
+                <option value="7">Wave</option>
+                <option value="8">Tide</option>
                 <option value="9">Chachacha</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
+              </select>
+            </div>
+              <div>
+              <h2>Select intensity</h2>
+              <select id="selectBox" class="btn dropdown-toggle pink darken-4" placeholder="Select mode" onchange="changeIntensity(value);">
+                <option value="0">None</option>
+                <option value="1">Vibrate1</option>
+                <option value="2">Vibrate2</option>
+                <option value="3">Vibrate3</option>
+                <option value="4">Pulse</option>
+                <option value="5">Rapid Pulse</option>
+                <option value="6">Echo</option>
+                <option value="7">Wave</option>
+                <option value="8">Tide</option>
+                <option value="9">Chachacha</option>
               </select>
             </div>
           </section>
@@ -183,6 +195,13 @@
   function changePattern(command)  {
      weVibe.connect()
           .then(_ => {return weVibe.writeCommand(new Uint8Array([15, command, null, 0, null, null, null, null]));})
+          //.then(_ => weVibe.disconnect())
+          .catch(error => { console.log(error) });
+  }
+        
+         function changeIntensity(command)  {
+     weVibe.connect()
+          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, null, null, command, null, null, null, null]));})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
   }
