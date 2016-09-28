@@ -165,7 +165,7 @@
           weVibe.connect()
           .then(_ => {return weVibe.writeCommand(new Uint8Array([15, 255, 0, 100, 0, 0, 0, 0]))})
           .then(_ => {return weVibe.readInfo()})
-          .then(result => {console.log(result)})
+          .then(result => {console.log(result.getUint8(1) & 0xf)})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
           /*console.log(":P");
