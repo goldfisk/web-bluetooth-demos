@@ -71,6 +71,7 @@
                 <option value="none">None</option>
                 <option value="chachacha">Chachacha</option>
                 <option value="vibrate">Vibrate</option>
+                <option value="vibrate2">Vibrate2</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -168,17 +169,7 @@
           .then(result => {console.log(result.getUint8(1) & 0xf)})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
-          /*console.log(":P");
-          console.log(weVibe.readInfo());
-          data = weVibe.readInfo();
-          document.getElementById('info-wrapper').style.display = ""
-          document.getElementById('info').innerHTML = data;
-          */
           
-          
-          
-          
-          //});
         });
     
   function changePattern(pattern)  {
@@ -189,8 +180,10 @@
     command = new Uint8Array([15, 9, null, 0, null, null, null, null]); 
     else if (pattern == "vibrate")
     command = new Uint8Array([15, 1, null, 0, null, null, null, null]); 
-     else if (pattern == "other")
+     else if (pattern == "vibrate2")
     command = new Uint8Array([15, 2, null, 0, null, null, null, null]); 
+    else if (pattern == "other")
+    command = new Uint8Array([15, 3, null, 0, null, null, null, null]); 
      weVibe.connect()
           .then(_ => {return weVibe.writeCommand(command);})
           //.then(_ => weVibe.disconnect())
