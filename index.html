@@ -163,7 +163,9 @@
         document.querySelector('#btn_read_data').addEventListener('click', function() {
           
           weVibe.connect()
-          .then(_ => {weVibe.writeCommand(new Uint8Array([15, 255, 0, 100, 0, 0, 0, 0]))})
+          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, 255, 0, 100, 0, 0, 0, 0]))})
+          .then(_ => {return weVibe.readInfo()})
+          .then(result => {console.log(result)})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
           /*console.log(":P");
@@ -173,11 +175,7 @@
           document.getElementById('info').innerHTML = data;
           */
           
-          weVibe.readInfo().then(function(result) {
-          console.log(result); // "Stuff worked!"
-            }, function(err) {
-          console.log(err); // Error: "It broke"
-          });
+          
           
           
           //});
