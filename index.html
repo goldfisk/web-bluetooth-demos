@@ -83,16 +83,16 @@
               <div>
               <h2>Select intensity</h2>
               <select id="selectBox" class="btn dropdown-toggle pink darken-4" placeholder="Select mode" onchange="changeIntensity(value);">
-                <option value="0">None</option>
-                <option value="1">Vibrate1</option>
-                <option value="2">Vibrate2</option>
-                <option value="3">Vibrate3</option>
-                <option value="4">Pulse</option>
-                <option value="5">Rapid Pulse</option>
-                <option value="6">Echo</option>
-                <option value="7">Wave</option>
-                <option value="8">Tide</option>
-                <option value="9">Chachacha</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
               </select>
             </div>
           </section>
@@ -203,7 +203,7 @@
         
          function changeIntensity(command)  {
      weVibe.connect()
-          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, mode, null, command, null, null, null, null]));})
+          .then(_ => {return weVibe.writeCommand(new Uint8Array([null, mode, null, command, null, null, null, null]));})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
            intensity = command;
