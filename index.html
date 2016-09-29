@@ -103,7 +103,8 @@
         // Other references:
         //  * <https://googlechrome.github.io/samples/web-bluetooth/device-info.html>
         //  * <https://googlechrome.github.io/samples/web-bluetooth/reset-energy.html>
-
+        mode = 0;
+        intensity = 0;
         class WeVibe {
         
           constructor() {
@@ -194,16 +195,18 @@
     
   function changePattern(command)  {
      weVibe.connect()
-          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, command, null, 0, null, null, null, null]));})
+          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, command, null, intensity, null, null, null, null]));})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
+    mode = command;
   }
         
          function changeIntensity(command)  {
      weVibe.connect()
-          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, 4, null, command, null, null, null, null]));})
+          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, mode, null, command, null, null, null, null]));})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
+           intensity = command;
   }
 
         </script>
