@@ -201,7 +201,7 @@
         
          function changeIntensity(command)  {
      weVibe.connect()
-          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, null, null, command, null, null, null, null]));})
+          .then(_ => {return weVibe.writeCommand(new Uint8Array([15, 4, null, command, null, null, null, null]));})
           //.then(_ => weVibe.disconnect())
           .catch(error => { console.log(error) });
   }
